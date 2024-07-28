@@ -126,15 +126,5 @@ namespace RESTful.API.Repositories.Implementation
             return query;
         }
         #endregion
-
-        #region Total Record
-        public async Task<int> TotalRecordAsync(List<Filter> filters)
-        {
-            var query = GetAll();
-
-            query = await FilterAsync(query, filters);
-            return await query.CountAsync();
-        }
-        #endregion
     }
 }
