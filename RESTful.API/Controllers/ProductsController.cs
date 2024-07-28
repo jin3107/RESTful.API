@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RESTful.API.DTOs;
+using RESTful.API.Infrastructures.Request;
+using RESTful.API.Services.Implementation;
 using RESTful.API.Services.Interface;
 
 namespace RESTful.API.Controllers
@@ -75,5 +77,36 @@ namespace RESTful.API.Controllers
 
             return NoContent();
         }
+
+        [HttpPost("search")]
+        public async Task<IActionResult> SearchProducts([FromBody] SearchRequest searchRequest)
+        {
+            try
+            {
+
+                if (searchRequest == null)
+                {
+                    return BadRequest("Invalid search request");
+                }
+                var defaultSortBy = new SortByInfo
+                {
+                    FieldName = "Name",
+                    Accending = true
+                };
+                var searchResponse = await _service.SearchProductsAsync(
+                    searchRequest.Filters ?? new List<Filter>(),
+                    searchRequest.SortBy ?? defaultSortBy,
+                    searchRequest.PageNumber ?? 1,
+                    searchRequest.PageSize ?? 10
+                );
+
+                return Ok(searchResponse);
+            }
+            catch (Exception ex)
+            { 
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using RESTful.API.DTOs;
+using RESTful.API.Infrastructures.Request;
+using RESTful.API.Infrastructures.Response;
 using RESTful.API.Models.Entity;
+using RESTful.API.Repositories.Implementation;
 using RESTful.API.Repositories.Interface;
 using RESTful.API.Services.Interface;
 
@@ -56,10 +59,13 @@ namespace RESTful.API.Services.Implementation
                 throw new Exception($"Product Id does not found");
             }
 
-            //var product = _mapper.Map<Product>(productDTO);
-            //await _repository.UpdateAsync(product);
             _mapper.Map(productDTO, exisProduct);
             await _repository.UpdateAsync(exisProduct);
+        }
+
+        public async Task<SearchResponse<ProductDTO>> SearchProductsAsync(List<Filter> filters, SortByInfo sortBy, int pageNumber, int pageSize)
+        {
+            return await _repository.SearchAsync(filters, sortBy, pageNumber, pageSize);
         }
     }
 }
