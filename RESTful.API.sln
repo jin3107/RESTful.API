@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTful.API", "RESTful.API\RESTful.API.csproj", "{7B2B308F-3DB0-48E9-95FC-24A00B94FA2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{62144588-813A-418B-A275-5D221623D33F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B2B308F-3DB0-48E9-95FC-24A00B94FA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2B308F-3DB0-48E9-95FC-24A00B94FA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2B308F-3DB0-48E9-95FC-24A00B94FA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2B308F-3DB0-48E9-95FC-24A00B94FA2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {974E8AC8-EC82-48D4-9038-2BD7A11143F6}
+	EndGlobalSection
+EndGlobal
